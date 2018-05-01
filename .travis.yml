@@ -2,6 +2,13 @@ os: linux
 dist: trusty
 sudo: required
 
+
+addons:
+  apt:
+    packages:
+      - gcc-multilib
+      - cmake
+
 script: 
   - chmod +x CI_scripts/*
   - CI_scripts/get_compiler.sh
