@@ -3,7 +3,8 @@ dist: trusty
 sudo: required
 
 before_script:
-  - sh CI_scripts/get_compiler.sh
-  - sh CI_scripts/get_includes.sh
+  - chmod +x CI_scripts/*
+  - CI_scripts/get_compiler.sh
+  - CI_scripts/get_includes.sh
  
-script: sh CI_scripts/compile.sh gamemode.pwn
+script: CI_scripts/compile.sh gamemode.pwn
