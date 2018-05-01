@@ -1,0 +1,11 @@
+os: linux
+dist: trusty
+sudo: required
+
+install:
+  - sh CI_scripts/get_compiler.sh
+  - sh CI_scripts/get_include.sh
+ 
+ script:
+  - sh CI_scripts/compile.sh gamemode.pwn
+
