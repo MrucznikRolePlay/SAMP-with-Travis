@@ -3,13 +3,12 @@ os: linux
 dist: trusty
 sudo: required
 
-
 addons:
   apt:
     packages:
       - gcc-multilib
 
-install:
+before_script:
   - CI_scripts/get_compiler.sh
   - CI_scripts/get_includes.sh
 
