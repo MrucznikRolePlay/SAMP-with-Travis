@@ -6,14 +6,30 @@ sudo: required
 addons:
   apt:
     packages:
-      - libc6:i386
-      - libncurses5:i386
-      - libstdc++6:i386
+    - libc6:i386
+    - libncurses5:i386
+    - libstdc++6:i386
 
 before_script:
-  - chmod +x CI_scripts/*
-  - CI_scripts/get_compiler.sh
-  - CI_scripts/get_includes.sh
+- chmod +x CI_scripts/*
+- CI_scripts/get_compiler.sh
+- CI_scripts/get_includes.sh
 
-script: 
-  - CI_scripts/compile.sh gamemode.pwn
+script:
+- CI_scripts/compile.sh gamemode.pwn
+
+before_deploy:
+- git config --local user.name "Mrucznik"
+- git config --local user.email "mrucznix@gmail.com"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
+deploy:
+  provider: releases
+  api_key:
+    secure: OsqBAO6R18KejLqh8Z6zkEmchW5jS1KlQNMDpzZPbuGCwtiONown0dqY0/8WyvvPC1V3/SPrHnLVS+BysiFms2Md+EdsO65sey9J57MGKwUnPwf/Didnlp2seOtl0TYrEv7HZc9wuqBcHbxX6bepp8pgumW+zH8XyBN7Ss3LE95+k4ue8g7+icIFaFRuJTEY+efmafFsY/XV06QIpDfVAjTmtMv8uUbewVScASzKQa54nXM6PrRIQ43HcmYBuRJtLa+3FBPKUOfO8EbDH8wcvTE/ptY4kjctAHW4blBngZSW+rJ5YKu02PZyb+14wWTup6niFGmu9d0Sr0XdoHAGeMKaVUdnCF3rkKn6nfBtb2mf618F4XvQFh21ULUkGGZWgRjMTg4owT7HTJAqgsW2wghtnaMNY9uCEEJv//AqsGo42Y4bPh+klvUboo+CH+Ml5FL9FtTil3nO3Wk5LllgXVUL8+XJ1TeypkHFcVmj6UDsyPlonZ42zUuj0LwV6uL2fqKGvNw23gxz6NLRvFRpAhvFRp08bBVjrhg8TB2dbKkwyhHc5SzEFGnAWOgdAXsjAzmyuYKm+2AB+xKuf//VESUKuus3+mi4oX5bsc0Bw2QAkVIyZYci8ru/51fgOvGQ2X8kyYylqSsNhMEIIYMftssEI8xXy7g4PZ8X9VKB7Ik=
+  file: gamemode.amx
+  skip_cleanup: true
+  on:
+    branch: master
+    repo: Mrucznik/SAMP-with-Travis
+  
