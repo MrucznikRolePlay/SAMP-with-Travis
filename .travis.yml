@@ -2,9 +2,8 @@ os: linux
 dist: trusty
 sudo: required
 
-before_script:
+script: 
   - chmod +x CI_scripts/*
   - CI_scripts/get_compiler.sh
   - CI_scripts/get_includes.sh
- 
-script: CI_scripts/compile.sh gamemode.pwn
+  - CI_scripts/compile.sh gamemode.pwn
