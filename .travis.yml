@@ -7,8 +7,9 @@ sudo: required
 addons:
   apt:
     packages:
-      - gcc-multilib
-      - cmake
+      - libc6:i386
+	  - libncurses5:i386
+	  - libstdc++6:i386
 
 install:
   - CI_scripts/get_compiler.sh
