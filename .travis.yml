@@ -1,0 +1,19 @@
+language: c
+os: linux
+dist: trusty
+sudo: required
+
+addons:
+  apt:
+    packages:
+      - libc6:i386
+      - libncurses5:i386
+      - libstdc++6:i386
+
+before_script:
+  - chmod +x CI_scripts/*
+  - CI_scripts/get_compiler.sh
+  - CI_scripts/get_includes.sh
+
+script: 
+  - CI_scripts/compile.sh gamemode.pwn
