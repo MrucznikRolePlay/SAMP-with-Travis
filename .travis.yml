@@ -10,8 +10,9 @@ addons:
       - gcc-multilib
       - cmake
 
-script: 
-  - chmod +x CI_scripts/*
+install:
   - CI_scripts/get_compiler.sh
   - CI_scripts/get_includes.sh
+	  
+script: 
   - CI_scripts/compile.sh gamemode.pwn
