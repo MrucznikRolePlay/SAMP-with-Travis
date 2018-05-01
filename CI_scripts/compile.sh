@@ -1,3 +1,4 @@
 #!/bin/bash
 
-source compiler/bin/pawn.cc -i~/include $@
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/compiler/lib
+source ~/compiler/bin/pawn.cc -i~/include $@
