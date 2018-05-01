@@ -8,12 +8,11 @@ addons:
   apt:
     packages:
       - libc6:i386
-	  - libncurses5:i386
-	  - libstdc++6:i386
+      - libncurses5:i386
+      - libstdc++6:i386
 
 install:
   - CI_scripts/get_compiler.sh
   - CI_scripts/get_includes.sh
-	  
-script: 
-  - CI_scripts/compile.sh gamemode.pwn
+
+script: CI_scripts/compile.sh gamemode.pwn
