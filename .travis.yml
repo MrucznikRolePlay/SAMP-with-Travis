@@ -9,6 +9,7 @@ addons:
       - gcc-multilib
 
 before_script:
+  - chmod +x CI_scripts/*
   - CI_scripts/get_compiler.sh
   - CI_scripts/get_includes.sh
 

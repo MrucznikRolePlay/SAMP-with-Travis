@@ -12,6 +12,3 @@ unzip -qq samp037_svr_R2-1-1_win32.zip
 cp -R pawno/include/* ../
 cd ..
 rm -R samp_includes
-
-
-
